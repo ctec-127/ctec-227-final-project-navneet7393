@@ -13,12 +13,17 @@
             <div class="col-md-8">
             <?php
 
-                // displaying the posts from the database
-                $query = "SELECT * FROM posts";
-                $data = mysqli_query($con,$query);
+                if (isset($_POST['btn_search'])) {
+                    $search = $_POST['search'];
+                    $sql = "SELECT * FROM posts WHERE post_tags LIKE '%$search%'";
+                    $result = mysqli_query($con,$sql);
+                    
+
+                    if (mysqli_num_rows($result)) {
+                   
 
                 // assign variables from the database to display
-                while ($row = mysqli_fetch_assoc($data)) {
+                while ($row = mysqli_fetch_assoc($result)) {
                     $post_title = $row['post_title'];
                     $post_author = $row['post_author'];
                     $post_date = $row['post_date'];
@@ -49,9 +54,16 @@
                 <hr>
 
             
-                <?php } ?>
+            <?php
+                }
+             } else {
+                 echo "<h2>Record Not Found</h2>";
+             }
+            }
+             ?>
+
                 </div>
-            <?php require_once "includes/side_bar.php"?>
+            <?php require_once "includes/side_bar.php"; ?>
             <!-- Blog Sidebar Widgets Column -->
 
                 </div>
