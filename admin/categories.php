@@ -11,7 +11,7 @@
                             <small>Author</small>
                         </h1>
                     </div>
-                    <!-- Adding new Category -->
+                    <!-- Adding new Category.-->
                     <div class="col-lg-6">
                         <?php
                         // Add New Category button
