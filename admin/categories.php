@@ -25,14 +25,42 @@
                                 }
                             }
                         ?>
+                        <!-- Add new category table -->
                         <form action="" method="POST">
                         <label for="category">Add New Category</label>
                             <input type="text" name="category" placeholder="Category" class="form-control mb-2">
                             <br>
                             <button class="btn btn-success" type="submit" name="btn_category">Add Category</button>
                         </form>
+                        <br>
+                        <!-- Editing the categories -->
+                        <?php
+                            if (isset($_GET['edit'])) {
+                                $edit_id = $_GET['edit'];
+                                // get record and assign to sql variable
+                                $sql = "SELECT * FROM categories WHERE cat_id = '$edit_id'";
+                                $result = mysqli_query($con, $sql);
+                                $data = mysqli_fetch_assoc($result);
+                        ?>
+                        <!-- Add new category table -->
+                        <form action="" method="POST">
+                            <label for="category">Edit Category</label>
+                                <!-- The value php will change on click -->
+                                <input type="text" name="edit_category" value="<?php echo $data['cat_title'];?>" placeholder="Category" class="form-control mb-2">
+                                <br>
+                                <button class="btn btn-success" type="submit" name="btn_edit_category">Edit Category</button>
+                        </form>
+                        <?php
+                        
+                        }
+                        ?>
+
+
+
+
                     </div>
                     <div class="col-lg-6">
+                    <!-- Building the table in the category section -->
                         <table class="table table-bordered">
                             <tr>
                                 <th style="width: 20%">Category ID</th>
@@ -51,8 +79,10 @@
 
                                 <td> <?php echo $row['cat_id']; ?> </td>
                                 <td> <?php echo $row['cat_title']; ?> </td>
+                                <!-- Delete -->
                                 <td> <a href="categories.php?delete=<?php echo $row['cat_id'];?>" class="btn btn-danger"><span class="fa fa-trash"></span></a> </td>
-                                <td> <a href="categories.php?update=<?php echo $row['cat_id'];?>" class="btn btn-edit"><span class="fa fa-edit"></span></a> </td>
+                                <!-- Update -->
+                                <td> <a href="categories.php?edit=<?php echo $row['cat_id'];?>" class="btn btn-success"><span class="fa fa-edit"></span></a> </td>
                             </tr>
                             <?php
                             }
@@ -60,7 +90,7 @@
                             // Deleting the Category record
                             if (isset($_GET['delete'])) {
                                 $delete = $_GET['delete'];
-                                $sql = "DELETE FROM categories WHERE cat_id='delete'";
+                                $sql = "DELETE FROM categories WHERE cat_id='$delete'";
                                 $result = mysqli_query($con,$sql);
 
                                 if ($result) {

@@ -1,8 +1,12 @@
 <!-- Header -->
 <?php require_once "includes/header.php"; ?>
 
+<?php require_once "includes/db.php"; ?>
+
     <!-- Navigation -->
 <?php require_once "includes/nav.php"; ?>
+
+<?php $con = mysqli_connect("localhost", "root", "" , "cms"); ?>
 
     <!-- Page Content -->
     <div class="container">
@@ -16,21 +20,19 @@
                 if (isset($_POST['btn_search'])) {
                     $search = $_POST['search'];
                     $sql = "SELECT * FROM posts WHERE post_tags LIKE '%$search%'";
-                    $result = mysqli_query($con,$sql);
+                    $result = mysqli_query($con, $sql);
                     
-
-                    if (mysqli_num_rows($result)) {
-                   
-
-                // assign variables from the database to display
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $post_title = $row['post_title'];
-                    $post_author = $row['post_author'];
-                    $post_date = $row['post_date'];
-                    $post_image = $row['post_img'];
-                    $post_content = $row['post_content'];
-                    $post_tags = $row['post_tags'];
                 
+                if (mysqli_num_rows($result)) {
+                    // assign variables from the database to display
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $post_title = $row['post_title'];
+                            $post_author = $row['post_author'];
+                            $post_date = $row['post_date'];
+                            $post_image = $row['post_img'];
+                            $post_content = $row['post_content'];
+                            $post_tags = $row['post_tags'];
+                            
             ?>
                 <h1 class="page-header">
                     Page Heading
@@ -55,11 +57,13 @@
 
             
             <?php
-                }
-             } else {
-                 echo "<h2>Record Not Found</h2>";
              }
             }
+            else
+            {
+                echo "<h2>Record Not Found Pleas try Again</h2>";
+            }
+        }
              ?>
 
                 </div>
