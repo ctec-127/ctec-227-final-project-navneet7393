@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">CMS Admin</a>
+                <a class="navbar-brand" href="index.php">CMS Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="./index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
 
                     </li>
@@ -41,10 +41,11 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#posts"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="posts" class="collapse">
                             <li>
-                                <a href="#">View All Posts</a>
+                                <a href="./posts.php">View All Posts</a>
                             </li>
                             <li>
-                                <a href="#">Add New Post</a>
+                            <!-- Make it a get variable -->
+                                <a href="posts.php?opt=add_post">Add New Post</a>
                             </li>
                         </ul>
                     </li>

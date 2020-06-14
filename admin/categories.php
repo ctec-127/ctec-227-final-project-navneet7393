@@ -1,7 +1,7 @@
-<?php require_once './includes/header.php';?>
+<?php require_once './admin_includes/header.php';?>
 <body>
     <div id="wrapper">
-<?php require_once './includes/nav.php';?>
+<?php require_once './admin_includes/nav.php';?>
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
@@ -35,6 +35,7 @@
                         <br>
                         <!-- Editing the categories -->
                         <?php
+                        //get the data to edit the id
                             if (isset($_GET['edit'])) {
                                 $edit_id = $_GET['edit'];
                                 // get record and assign to sql variable
@@ -42,14 +43,14 @@
                                 $result = mysqli_query($con, $sql);
                                 $data = mysqli_fetch_assoc($result);
                         ?>
-                        <!-- Add new category table -->
-                        <form action="" method="POST">
-                            <label for="category">Edit Category</label>
-                                <!-- The value php will change on click -->
-                                <input type="text" name="edit_category" value="<?php echo $data['cat_title'];?>" placeholder="Category" class="form-control mb-2">
-                                <br>
-                                <button class="btn btn-success" type="submit" name="btn_edit_category">Edit Category</button>
+                        <form action="update.php" method="POST">
+                        <label for="edit_category">Edit Category</label>
+                            <input type="text" name="edit_category" value="<?php echo $data['cat_title']; ?>" placeholder="Category" class="form-control mb-2">
+                            <input type="hidden"  name="edit_id" value="<?php echo $data['cat_id'];?>">
+                            <br>
+                            <button class="btn btn-success" type="submit" name="btn_edit_category">Edit Category</button>
                         </form>
+                        <br>
                         <?php
                         
                         }
@@ -108,4 +109,4 @@
         </div>
         <!-- /#page-wrapper -->
 
-          <?php require_once './includes/footer.php';?>
+          <?php require_once '../includes/footer.php';?>

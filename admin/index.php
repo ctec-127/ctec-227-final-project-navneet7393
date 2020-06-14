@@ -1,7 +1,7 @@
-<?php require_once './includes/header.php';?>
+<?php require_once './admin_includes/header.php';?>
 <body>
     <div id="wrapper">
-<?php require_once './includes/nav.php';?>
+<?php require_once './admin_includes/nav.php';?>
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
@@ -18,4 +18,4 @@
         </div>
         <!-- /#page-wrapper -->
 
-          <?php require_once './includes/footer.php';?>
+          <?php require_once './admin_includes/footer.php';?>
