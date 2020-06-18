@@ -1,6 +1,6 @@
 <?php
 
-require_once "./includes/header.php";
+require_once "./admin_includes/header.php";
 
 // target the edit button in the category 
  if (isset($_POST['btn_edit_category'])) {
