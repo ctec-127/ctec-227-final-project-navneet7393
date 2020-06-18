@@ -1,7 +1,9 @@
-<?php 
-ob_start(); //This function will turn output buffering on. While output buffering is active no output is sent from the script (other than headers), instead the output is stored in an internal buffer. 
-require_once "../includes/db.php"; 
+<?php
+    ob_start(); //This function will turn output buffering on. While output buffering is active no output is sent from the script (other than headers), instead the output is stored in an internal buffer. 
+    require_once "../includes/db.php"; 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -3,7 +3,7 @@
 
 $con = mysqli_connect("localhost", "root", "" , "cms");
 
-// Checking to see the connection to the database
+// // Checking to see the connection to the database
 
 // if (!$con) {
 //     die("Not Connected");

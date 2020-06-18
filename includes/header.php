@@ -1,5 +1,4 @@
-
-<!-- Header Section -->
+<!-- Header section -->
 <!DOCTYPE html>
 <html lang="en">
 

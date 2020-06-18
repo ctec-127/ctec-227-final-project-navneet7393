@@ -1,9 +1,20 @@
-<?php require_once './admin_includes/header.php';?>
+
+        <!-- Header -->
+        <?php require_once "./admin_includes/header.php"; ?>
+
+            <!-- Navigation -->
+        <?php require_once "./admin_includes/nav.php"; ?>
 <body>
+
     <div id="wrapper">
-<?php require_once './admin_includes/nav.php';?>
+
+
         <div id="page-wrapper">
+
+        <?php require_once "./admin_includes/nav.php"; ?>
+
             <div class="container-fluid">
+
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -15,7 +26,8 @@
                 <!-- /.row -->
                 </div>
             <!-- /.container-fluid -->
+
         </div>
         <!-- /#page-wrapper -->
 
-          <?php require_once './admin_includes/footer.php';?>
+        <?php require_once "./admin_includes/footer.php"; ?>

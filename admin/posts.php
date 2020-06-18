@@ -1,7 +1,7 @@
-<?php require_once './admin_includes/header.php';?>
+        <?php require_once './admin_includes/header.php';?>
 <body>
     <div id="wrapper">
-<?php require_once './admin_includes/nav.php';?>
+        <?php require_once './admin_includes/nav.php';?>
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
@@ -12,13 +12,14 @@
                         </h1>
 
 
+
                         <?php 
                         // Get variable for the URL to add,view, delete posts
                             if (isset($_GET['opt'])) {
                                 $opt = $_GET['opt'];
                             } else {
                                 $opt = "";
-                            } switch($opt){
+                            } switch ($opt){
                                 case 'add_post':
                                     require_once "admin_includes/add_post.php";
                                 break;
@@ -27,13 +28,13 @@
                                 break;
                                 default:
                                 require_once "admin_includes/view_all_posts.php";
-                            break;
+                                break;
                             }
                         ?>
-                    </div>
+                        </div>
 
-                   </div>
-                <!-- /.row -->
+                    </div>
+                    <!-- /.row -->
                 </div>
             <!-- /.container-fluid -->
         </div>
