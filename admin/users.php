@@ -20,13 +20,13 @@
                                 $opt = "";
                             } switch($opt){
                                 case 'add_post':
-                                    require_once "admin_includes/add_post.php";
+                                    require_once "admin_includes/add_user_post.php";
                                 break;
                                 case 'edit_post':
-                                    require_once "admin_includes/edit_post.php";
+                                    require_once "admin_includes/edit_users.php";
                                 break;
                                 default:
-                                require_once "admin_includes/view_all_posts.php";
+                                require_once "admin_includes/view_all_users.php";
                             break;
                             }
                         ?>

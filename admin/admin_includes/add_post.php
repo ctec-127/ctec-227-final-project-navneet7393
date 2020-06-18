@@ -5,7 +5,7 @@
 <?php
     //if user clicks on the add post button. 
     if (isset($_POST['btn_add_post'])) {
-        $title = $_POST['post_title'];
+        $title = $_POST['cat_name'];
         $cat_id = $_POST['post_cat_id'];
         $author = $_POST['post_author'];
         $status = $_POST['post_status'];
@@ -36,7 +36,7 @@
             echo "Query Failed";
         }
 
-
+        echo $sql;
     }
 ?>
             <div class="container-fluid">
@@ -49,8 +49,21 @@
                         <label for="post">Post Title</label>
                             <input type="text" name="post_title" placeholder="Post Title" class="form-control mb-2" id="post"><br>
 
-                        <label for="post_cat_id">Post Category ID</label>
-                            <input type="text" name="post_cat_id" placeholder="Post Category ID" class="form-control mb-2" id="post_cat_id"><br>
+                            <select name="cat_name" id="" class="form-control">
+                            <?php
+                                $sql = "SELECT * FROM categories";
+                                $value = mysqli_query($con, $sql);
+
+                                while($row = mysqli_fetch_assoc($value)){
+                                    $cat_id = $row['cat_id'];
+                                    $cat_title = $row['cat_title'];
+                            ?>
+                                <option value="<?php echo $cat_id;?>"><?php echo $cat_title;?></option>
+                            <?php
+                                }
+
+                            ?>
+                            </select><br>
 
                         <label for="post_author">Post Author</label>
                             <input type="text" name="post_author" placeholder="Post Author" class="form-control mb-2" id="post_author"><br>
@@ -67,7 +80,7 @@
                         <label for="post_content">Post Content</label>
                             <textarea name="post_content" id="post_content" cols="30" rows="10" class="form-control" id="post_content"></textarea>
                             <br>
-                            <button class="btn btn-success" type="submit" name="btn_add_post">Add Category</button>
+                            <button class="btn btn-success" type="submit" name="btn_add_post">Add Post</button>
                         </form>
                         <br>
 

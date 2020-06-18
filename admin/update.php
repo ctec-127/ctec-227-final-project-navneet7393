@@ -1,6 +1,6 @@
 <?php
 
-require_once "./includes/header.php";
+require_once "admin_includes/header.php";
 
 // target the edit button in the category 
  if (isset($_POST['btn_edit_category'])) {
@@ -13,7 +13,7 @@ require_once "./includes/header.php";
     // UPDATE sql and set title to whatever user enters
      $sql = "UPDATE categories SET cat_title='$up_cat' WHERE cat_id='$up_id'";
      // mysqli_query: This function is used to execute SQL command
-     $results = mysqli_query($con,$sql);
+     $results = mysqli_query($con, $sql);
 
 
      if($results){

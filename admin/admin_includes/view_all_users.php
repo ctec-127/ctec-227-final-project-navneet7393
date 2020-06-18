@@ -2,43 +2,29 @@
                          <table class="table table-stripped">
                         <tr>
                             <td>ID</td>
-                            <td>Author</td>
-                            <td>Title</td>
-                            <td>Category</td>
-                            <td>Status</td>
-                            <td>Img</td>
-                            <td>Comment</td>
+                            <td>Username</td>
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                            <td>Email</td>
+                            <td>Image</td>
+                            <td>Role</td>
                             <td>Date</td>
                             <td colspan="2">Operations</td>
                         </tr>
                         <tr>
 
                         <?php
-                            $query = "SELECT * FROM posts";
-                            $result = mysqli_query($con, $query);
+                            $query = "SELECT * FROM users";
+                            $users = mysqli_query($con, $query);
 
-                            while($row = mysqli_fetch_assoc($result)) {
+                            while($row = mysqli_fetch_assoc($users)) {
 
                                 $old = $row['post_img'];
-                                $cat_id = $row['post_cat_id'];
                         ?>
                             <td><?php echo $row['post_id']; ?></td>
                             <td><?php echo $row['post_author']; ?></td>
                             <td><?php echo $row['post_title']; ?></td>
-
-
-                            <?php
-
-                            // category section will be shown as the section form the add category page instead of number
-                                $query = "SELECT * FROM categories WHERE cat_id = '$cat_id'";
-                                $data = mysqli_query($con, $query);
-
-                                while ($value = mysqli_fetch_assoc($data)) {
-                            ?>
-                                <td><?php echo $value['cat_title']; ?></td>
-                            <?php
-                                }
-                            ?>
+                            <td><?php echo $row['post_cat_id']; ?></td>
                             <td><?php echo $row['post_status']; ?></td>
                             <td><img class="img-responsive" width="50" height="50" src="../images/<?php echo $row['post_img'];?>"></td>
                             <td><?php echo $row['post_comment_count']?></td>
